@@ -1,11 +1,117 @@
-/* 
+:root {
+  --primary-color: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --secondary-color: #d946ef;
+  --light-bg: #f5f3ff;
+  --text-color: #4b5563;
+  --success-color: #10b981;
+  --border-radius: 0.75rem;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+body {
+  background-color: #f8f9fa;
+}
 
-*/
+.custom-card {
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.1);
+}
+
+.custom-title {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.custom-input {
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+}
+
+.custom-btn-add {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn-add:hover {
+  background-color: var(--primary-hover);
+}
+
+.task-pending {
+  background-color: #fbfaff;
+  border-left: 3px solid var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.task-completed {
+  background-color: #ecfdf5;
+  border-left: 3px solid var(--success-color);
+}
+
+.task-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-checkbox:hover {
+  border-color: var(--primary-color);
+}
+
+.task-checkbox.checked {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: white;
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: #cbd5e0;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0 8px;
+  opacity: 0;
+  transition: opacity 0.3s, color 0.2s;
+}
+
+.task-item:hover .btn-delete {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  color: #e53e3e;
+}
+
+.task-item {
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateX(3px);
+}
+
+.empty-tasks {
+  color: #a0aec0;
+}
+
