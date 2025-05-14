@@ -10,17 +10,14 @@ const TodoList = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	// Carga inicial
 	useEffect(() => {
 		const loadData = async () => {
 			try {
-				// 1. Verificar/Crear usuario
 				const userResponse = await fetch(`${API_BASE}/users/${USER}`);
 				if (userResponse.status === 404) {
 					await fetch(`${API_BASE}/users/${USER}`, { method: "POST" });
 				}
 
-				// 2. Cargar tareas
 				const tasksResponse = await fetch(`${API_BASE}/users/${USER}`);
 				const data = await tasksResponse.json();
 				setTasks(data.todos || []);
